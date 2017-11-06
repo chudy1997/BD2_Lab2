@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Shop.DB.OrderInfo>
+
+<html>
+<body>
+    @Styles.Render("~/Content/Home.css")
+    <h2 class="header">Orders</h2>
+    <ul>
+        @foreach (var o in Model)
+            {
+            <li>
+                <h2 class="product-label order">Order number: @Html.DisplayFor(modelItem => o.OrderId)</h2>
+                <h3 class="product-label order">Date: @Html.DisplayFor(modelItem => o.Date)</h3>
+                <ul>
+                    @foreach (var productInfo in o.ProductInfos)
+                    {
+                        <li>
+                            <h3 class="product-label">Name: @Html.DisplayFor(modelItem => productInfo.Product.Name)</h3>
+                            <h4 class="product-label">Quantity: @Html.DisplayFor(modelItem => productInfo.Quantity)</h4>
+                            <h4 class="product-label">Cost: @Html.DisplayFor(modelItem => productInfo.Cost)</h4>
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+
+</body>
+</html>

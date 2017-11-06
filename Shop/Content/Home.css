@@ -1,0 +1,104 @@
+﻿.body {
+    display: flex;
+}
+
+.grid {
+    overflow: auto;
+    display: flex;
+}
+
+.contact-address b {
+    clear: both;
+}
+
+
+.img-shop {
+    float: left;
+    padding-top: 10px;
+    min-height: 800px;
+    min-width: 1200px;
+}
+
+.text {
+    font: italic arial;
+}
+
+.about-text {
+    text-align: center;
+}
+
+.contact-address {
+    text-align: center;
+}
+
+.header {
+    text-align: center;
+}
+
+li {
+    list-style-type: none;
+}
+
+.category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+    .category a {
+        color: black;
+        font-size: 80px;
+        text-decoration: none;
+    }
+
+.product-label {
+    margin: 3px;
+}
+
+.button {
+    border: 3px solid black;
+    text-align: center;
+    width: 170px;
+    padding-left: -30px;
+    margin-left: 40px;
+}
+
+    .button:hover {
+        background-color: gray;
+    }
+
+    .button a {
+        text-decoration: none;
+        color: black;
+        font-size: 30px;
+    }
+
+#confirm-basket {
+    margin-bottom: 5px;
+}
+
+.sign-in-grid {
+    display: grid;
+    justify-content: center;
+}
+
+.sign-in-label {
+    margin: 0px;
+    text-align: center;
+    margin: 5px;
+}
+
+.sign-in-input {
+    height: 12px;
+    width: 80px;
+}
+
+.sign-in-button {
+    height: 20px;
+    width: 85px;
+    margin-top: 15px;
+}

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Shop.DB.OrderInfo>
+
+<html>
+<head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js">
+    </script>
+</head>
+<body>
+    <script>
+        window.onload = function () {
+            $('#confirm-basket').click(function () {
+                $.post('/Home/ConfirmBasket');
+            });
+            $('#discard-basket').click(function () {
+                $.post('/Home/DiscardBasket');
+            });
+        }
+    </script>
+
+    @Styles.Render("~/Content/Home.css")
+    <h2 class="header">Basket</h2>
+        <ul>
+            @foreach (var o in Model)
+            {
+                <li>
+                    <h2 class="product-label order">Order number: @Html.DisplayFor(modelItem => o.OrderId)</h2>
+                    <h3 class="product-label order">Date: @Html.DisplayFor(modelItem => o.Date)</h3>
+                    <ul>
+                        @foreach (var productInfo in o.ProductInfos)
+                        {
+                            <li>
+                                <h3 class="product-label">Name: @Html.DisplayFor(modelItem => productInfo.Product.Name)</h3>
+                                <h4 class="product-label">Quantity: @Html.DisplayFor(modelItem => productInfo.Quantity)</h4>
+                                <h4 class="product-label">Cost: @Html.DisplayFor(modelItem => productInfo.Cost)</h4>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>
+        <div class="button" id="confirm-basket">@Html.ActionLink("Confirm", "Index", "Home")</div>
+        <div class="button" id="discard-basket">@Html.ActionLink("Discard", "Index", "Home")</div>
+</body>
+</html>

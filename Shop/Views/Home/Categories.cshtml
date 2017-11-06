@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Shop.DB.Category>
+
+<html>
+<body>
+    @Styles.Render("~/Content/Home.css")
+    <h1 class="header"><b>Categories</b></h1>
+    <ul>
+        @foreach (var category in Model)
+        {
+            <li class="li">
+                <div class="category" style="background-image: url(@category.PhotoLink);">@Html.ActionLink(category.Name, "Products", "Home", new { categoryId = category.CategoryId }, null)</div>
+            </li>
+        }
+    </ul>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charles Shop</title>
+    @Styles.Render("~/Content/MainLayout.css")
+</head>
+<body>
+    <div class="navbar-header">
+        <ul class="nav navbar-nav">
+            <li id="evaluate-them-nav">@Html.ActionLink("Charles Shop", "Index", "Home")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <li>@Html.ActionLink("Categories", "Categories", "Home")</li>
+            <li>@Html.ActionLink("Products", "Products", "Home")</li>
+            <li>@Html.ActionLink("Sign in", "SignIn", "Home")</li>
+            <li>@Html.ActionLink("Basket", "Basket", "Home")</li>
+            <li>@Html.ActionLink("Orders", "Orders", "Home")</li>
+        </ul>
+    </div>
+    <div>
+        @RenderBody()
+
+        <footer>
+            <p>&copy; 2017 Charles Shop</p>
+        </footer>
+    </div>
+</body>
+</html>

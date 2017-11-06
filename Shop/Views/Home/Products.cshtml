@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Shop.DB.Product>
+
+<html>
+<head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js">
+    </script>
+</head>
+<body>
+    <script>
+        window.onload = function () {
+        $('#add-to-basket').click(function () {
+            var dict = {};
+            var inputs = $('input');
+            for (var i = 0; i < inputs.length; i += 1){
+                dict['orders[' + i + '].Key'] = $(inputs[i]).attr('id');
+                dict['orders[' + i + '].Value'] = $(inputs[i]).val();
+            }
+            $.post('/Home/AddToBasket', dict, function (data, textStatus, XMLHttpRequest) { }, "json");
+        });
+        }
+    </script>
+
+    @Styles.Render("~/Content/Home.css")
+    <h2 class="header"><b>Products</b></h2>
+    <ul>
+        @foreach (var product in Model)
+        {
+            <li class="li">
+                <h3 class="product-label">Name: @Html.DisplayFor(modelItem => product.Name)</h3>
+                <h4 class="product-label">Units in stock: @Html.DisplayFor(modelItem => product.UnitsInStock)</h4>
+                <h4 class="product-label">Unit price: @Html.DisplayFor(modelItem => product.UnitPrice)</h4>
+                <br />
+                <input id=@product.ProductId type="number" min="0" value="0" />
+            </li>
+        }
+    </ul>
+    <div class="button" id="add-to-basket" type="submit">@Html.ActionLink("Add to basket", "Index", "Home")</div>
+</body>
+</html>
